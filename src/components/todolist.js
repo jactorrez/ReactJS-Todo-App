@@ -17,7 +17,6 @@ export default class TodosList extends React.Component {
 	}
 
 	render(){
-
 		return(
 			<table className="task-table">
 				<TodoListHead/>
@@ -28,5 +27,4 @@ export default class TodosList extends React.Component {
 
 		);
 	}
-
 }

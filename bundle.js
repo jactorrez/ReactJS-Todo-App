@@ -22168,7 +22168,7 @@
 					"form",
 					{ className: "task-form form-inline", onSubmit: this.handleCreate.bind(this) },
 					_react2.default.createElement("input", { className: "form-control", type: "text", placeholder: "Add a task!", ref: "createInput" }),
-					_react2.default.createElement("input", { className: "btn btn-primary", type: "submit" }),
+					_react2.default.createElement("input", { className: "btn btn-success", type: "submit" }),
 					this.renderError()
 				);
 			}
@@ -39402,7 +39402,7 @@
 				    task = _props.task,
 				    isCompleted = _props.isCompleted;
 	
-				var taskStyle = { color: isCompleted ? 'green' : 'red',
+				var taskStyle = { color: isCompleted ? '#388E3C' : '#DF5333',
 					cursor: 'pointer' };
 	
 				if (this.state.isEditing) {
@@ -39411,7 +39411,7 @@
 						null,
 						_react2.default.createElement(
 							'form',
-							{ onSubmit: this.onSaveClick.bind(this) },
+							{ className: 'form-inline', onSubmit: this.onSaveClick.bind(this) },
 							_react2.default.createElement('input', { type: 'text', defaultValue: task, ref: 'editInput' })
 						)
 					);
@@ -39419,7 +39419,7 @@
 	
 				return _react2.default.createElement(
 					'td',
-					{ style: taskStyle, onClick: this.props.onComplete.bind(this, task) },
+					{ className: 'todo-item', style: taskStyle, onClick: this.props.onComplete.bind(this, task) },
 					' ',
 					task,
 					' '
@@ -39436,12 +39436,12 @@
 						null,
 						_react2.default.createElement(
 							'button',
-							{ onClick: this.onSaveClick.bind(this) },
+							{ type: 'button', className: 'btn btn-default btn-list btn-xs', onClick: this.onSaveClick.bind(this) },
 							'Save'
 						),
 						_react2.default.createElement(
 							'button',
-							{ onClick: this.toggleEdit.bind(this) },
+							{ type: 'button', className: 'btn btn-default btn-list btn-xs', onClick: this.toggleEdit.bind(this) },
 							'Cancel'
 						)
 					);
@@ -39452,14 +39452,14 @@
 					null,
 					_react2.default.createElement(
 						'button',
-						{ onClick: this.toggleEdit.bind(this), className: '' },
+						{ type: 'button', className: 'btn btn-default btn-list btn-xs', onClick: this.toggleEdit.bind(this) },
 						'Edit'
 					),
 					_react2.default.createElement(
 						'button',
-						{ onClick: function onClick() {
+						{ type: 'button', className: 'btn btn-default btn-list btn-xs', onClick: function onClick() {
 								return _this2.props.onDelete(_this2.props.task);
-							}, className: '' },
+							} },
 						'Delete'
 					)
 				);

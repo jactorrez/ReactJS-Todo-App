@@ -22,6 +22,10 @@ export default class App extends React.Component{
 						}
 					]
 		}
+
+		this.createTask = this.createTask.bind(this);
+		this.toggleComplete = this.toggleComplete.bind(this);
+		this.saveTask = this.saveTask.bind(this);
 	}
 
 	createTask(task){
@@ -29,7 +33,6 @@ export default class App extends React.Component{
 			task, 
 			isCompleted: false
 		});
-
 
 		this.setState({
 			todos: this.state.todos,
@@ -66,8 +69,8 @@ export default class App extends React.Component{
 		return (
 			<div className="paper">
 				<h1>To-do List</h1>
-				<TodoListCreate createTask={this.createTask.bind(this)} todos={ this.state.todos }/> 
-				<TodoList onComplete={this.toggleComplete.bind(this)} onSave={ this.saveTask.bind(this) } onDelete={this.deleteTask.bind(this)} todos={this.state.todos}/>
+				<TodoListCreate createTask={ this.createTask } todos={ this.state.todos }/> 
+				<TodoList onComplete={ this.toggleComplete } onSave={ this.saveTask } onDelete={this.deleteTask.bind(this)} todos={ this.state.todos }/>
 			</div>
 		);
 	}

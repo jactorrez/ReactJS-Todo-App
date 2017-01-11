@@ -7,18 +7,20 @@ export default class TodosListItem extends React.Component {
 		this.state = {
 			isEditing: false
 		};
+
+		this.onSaveClick = this.onSaveClick.bind(this);
+		this.toggleEdit = this.toggleEdit.bind(this);
 	}
 
 	renderTaskSection(){
-
 		const { task, isCompleted } = this.props; 
 		const taskStyle = { color: isCompleted ? '#388E3C' : '#DF5333', 
 							cursor: 'pointer', }
 
 		if(this.state.isEditing){
 			return (<td>
-						<form className="form-inline" onSubmit={this.onSaveClick.bind(this)}>
-							<input type="text" defaultValue={task} ref="editInput"/>
+						<form className="form-inline" onSubmit={this.onSaveClick}>
+							<input type="text" defaultValue={task} ref={(input) => this.editInput = input}/>
 						</form>
 				    </td>);
 		}
@@ -32,16 +34,16 @@ export default class TodosListItem extends React.Component {
 		if(this.state.isEditing){
 			return (
 			<td>
-				<button type="button" className="btn btn-default btn-list btn-xs" onClick={this.onSaveClick.bind(this)} >Save</button>
-				<button type="button" className="btn btn-default btn-list btn-xs" onClick={this.toggleEdit.bind(this)}>Cancel</button>
+				<button type="button" className="btn btn-default btn-list btn-xs" onClick={this.onSaveClick} >Save</button>
+				<button type="button" className="btn btn-default btn-list btn-xs" onClick={this.toggleEdit}>Cancel</button>
 			</td>
 			);
 		}
 
 		return (
 			<td>
-				<button type="button" className="btn btn-default btn-list btn-xs" onClick={this.toggleEdit.bind(this)}>Edit</button>
-				<button type="button" className="btn btn-default btn-list btn-xs" onClick={() => this.props.onDelete(this.props.task)}>Delete</button>
+				<button type="button" className="btn btn-default btn-list btn-xs" onClick={this.toggleEdit}>Edit</button>
+				<button type="button" className="btn btn-default btn-list btn-xs btn-danger" onClick={() => this.props.onDelete(this.props.task)}>Delete</button>
 			</td>
 		);
 	}
@@ -49,7 +51,7 @@ export default class TodosListItem extends React.Component {
 	onSaveClick(event){
 		event.preventDefault();
 		const oldTask = this.props.task; 
-		const newTask = this.refs.editInput.value;
+		const newTask = this.editInput.value;
 		this.props.onSave(oldTask, newTask);
 
 		this.toggleEdit();

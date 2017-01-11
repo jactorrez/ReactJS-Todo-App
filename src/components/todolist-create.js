@@ -9,6 +9,8 @@ export default class TodosListCreate extends React.Component {
 		this.state = {
 			error: null,
 		}
+
+		this.handleCreate = this.handleCreate.bind(this);
 	}
 
 	renderError(){
@@ -16,13 +18,13 @@ export default class TodosListCreate extends React.Component {
 			return null;
 		}
 
-		return (<div style={{ color: "red",}}>{ this.state.error }</div>)
+		return (<div style={{ color: "#DF5333",}}>{ this.state.error }</div>)
 	}
 
 	handleCreate(event) {
 		event.preventDefault();
 		
-		const task = this.refs.createInput.value;
+		const task = this.taskField.value;
 		const validateInput = this.validateInput(task);
 
 		if(validateInput){
@@ -31,7 +33,7 @@ export default class TodosListCreate extends React.Component {
 
 		else{
 		this.props.createTask(task);	
-		this.refs.createInput.value = '';
+		this.taskField.value = '';
 		}
 		
 	}
@@ -48,8 +50,8 @@ export default class TodosListCreate extends React.Component {
 
 	render(){
 		return(
-			<form className="task-form form-inline" onSubmit={this.handleCreate.bind(this)}>
-				<input className="form-control" type="text" placeholder="Add a task!" ref="createInput" />
+			<form className="task-form form-inline" onSubmit={this.handleCreate}>
+				<input className="form-control" type="text" placeholder="Add a task!" ref={(input) => this.taskField = input} />
 				<input className="btn btn-success" type="submit"/>
 				{this.renderError()}
 			</form>
