@@ -12,19 +12,19 @@ export default class TodosListItem extends React.Component {
 	renderTaskSection(){
 
 		const { task, isCompleted } = this.props; 
-		const taskStyle = { color: isCompleted ? 'green' : 'red', 
+		const taskStyle = { color: isCompleted ? '#388E3C' : '#DF5333', 
 							cursor: 'pointer', }
 
 		if(this.state.isEditing){
 			return (<td>
-						<form onSubmit={this.onSaveClick.bind(this)}>
+						<form className="form-inline" onSubmit={this.onSaveClick.bind(this)}>
 							<input type="text" defaultValue={task} ref="editInput"/>
 						</form>
 				    </td>);
 		}
 
 		return (
-				<td style = {taskStyle} onClick={ this.props.onComplete.bind(this, task) }> { task } </td>
+				<td className="todo-item" style={taskStyle} onClick={ this.props.onComplete.bind(this, task) }> { task } </td>
 		);
 	}
 
@@ -32,16 +32,16 @@ export default class TodosListItem extends React.Component {
 		if(this.state.isEditing){
 			return (
 			<td>
-				<button onClick={this.onSaveClick.bind(this)}>Save</button>
-				<button onClick={this.toggleEdit.bind(this)}>Cancel</button>
+				<button type="button" className="btn btn-default btn-list btn-xs" onClick={this.onSaveClick.bind(this)} >Save</button>
+				<button type="button" className="btn btn-default btn-list btn-xs" onClick={this.toggleEdit.bind(this)}>Cancel</button>
 			</td>
 			);
 		}
 
 		return (
 			<td>
-				<button onClick={this.toggleEdit.bind(this)} class="">Edit</button>
-				<button onClick={() => this.props.onDelete(this.props.task)} class="">Delete</button>
+				<button type="button" className="btn btn-default btn-list btn-xs" onClick={this.toggleEdit.bind(this)}>Edit</button>
+				<button type="button" className="btn btn-default btn-list btn-xs" onClick={() => this.props.onDelete(this.props.task)}>Delete</button>
 			</td>
 		);
 	}

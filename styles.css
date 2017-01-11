@@ -2,7 +2,7 @@
 	background-color: white;
 	display: inline-block;
 	padding: 4rem;
-	box-shadow: 0 15px 30px 10px rgba(0,0,0, 0.08);
+	/*box-shadow: 0 15px 30px 10px rgba(0,0,0, 0.08);*/
 	position: relative;
 	border-radius: 10px;
 	top: 10rem;
@@ -38,5 +38,24 @@
 
 .todo-head tr th{
 	font-family: "Arial", Gadget, sans-serif;
-	font-weight: 300;
+	font-weight: bold;
+	color: grey;
+}
+
+tbody td{
+	font-family: "Arial", Gadget, sans-serif;
+	font-weight: 600;
+}
+
+tbody tr{
+	height: 30px;
+}
+
+.todo-item{
+	padding-right: 2rem;
+}
+
+
+.btn-list{
+	margin-right: 0.5rem;
 }

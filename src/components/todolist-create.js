@@ -50,7 +50,7 @@ export default class TodosListCreate extends React.Component {
 		return(
 			<form className="task-form form-inline" onSubmit={this.handleCreate.bind(this)}>
 				<input className="form-control" type="text" placeholder="Add a task!" ref="createInput" />
-				<input className="btn btn-primary" type="submit"/>
+				<input className="btn btn-success" type="submit"/>
 				{this.renderError()}
 			</form>
 		);	
