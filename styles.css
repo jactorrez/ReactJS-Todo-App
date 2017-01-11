@@ -1,0 +1,42 @@
+.paper{
+	background-color: white;
+	display: inline-block;
+	padding: 4rem;
+	box-shadow: 0 15px 30px 10px rgba(0,0,0, 0.08);
+	position: relative;
+	border-radius: 10px;
+	top: 10rem;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.paper h1{
+	font-family: "Arial Black", Gadget, sans-serif;
+	text-transform: uppercase;
+	font-weight: bold;
+	margin-bottom: 4rem;
+	text-align: center;
+}
+
+
+.task-form{
+	
+	text-align: center;
+}
+
+.task-form input[type="text"]{
+	margin-right: 1rem;
+}
+
+.task-table{
+	margin-top: 4rem;
+}
+
+.todo-head{
+	margin-bottom: 3rem;
+}
+
+.todo-head tr th{
+	font-family: "Arial", Gadget, sans-serif;
+	font-weight: 300;
+}
